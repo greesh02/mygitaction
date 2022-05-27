@@ -1,19 +1,17 @@
 import pytest
+from code.add import add_func
+
 @pytest.fixture
-def supply_AA_BB_CC():
-	aa=25
-	bb =35
-	cc=45
-	return [aa,bb,cc]
+def addition(request):
+    a = request.param[0]
+    b = request.param[1]
+    return add_func(a,b)
 
-def test_comparewithAA(supply_AA_BB_CC):
-	zz=25
-	assert supply_AA_BB_CC[0]==zz,"aa and zz comparison failed"
+@pytest.fixture
+def result(request):
+    return request.param
 
-def test_comparewithBB(supply_AA_BB_CC):
-	zz=35
-	assert supply_AA_BB_CC[1]==zz,"bb and zz comparison failed"
-
-def test_comparewithCC(supply_AA_BB_CC):
-	zz=45
-	assert supply_AA_BB_CC[2]==zz,"cc and zz comparison failed"
+# parameterizing fixtures so that we can run multiple testcases
+@pytest.mark.parametrize("addition,result", [([1,2],3), ([3,4],7)], indirect=True)
+def test_indirect(addition,result):
+    assert addition == result
