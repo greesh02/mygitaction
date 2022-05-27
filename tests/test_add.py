@@ -1,5 +1,4 @@
 import pytest
-from git import Repo
 from add import add_func
 
 @pytest.fixture
