@@ -1,5 +1,5 @@
 import pytest
-from ..add import add_func
+from code.add import add_func
 
 @pytest.fixture
 def addition(request):
