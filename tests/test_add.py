@@ -1,6 +1,5 @@
 import pytest
-from .. import code
-from code.add import add_func
+from mygitaction.code.add import add_func
 
 @pytest.fixture
 def addition(request):
