@@ -1,4 +1,6 @@
 def hello():
-  print(2)
+    print(2)
+    
+    
 def bye():
-  print()3
+    print(3)
