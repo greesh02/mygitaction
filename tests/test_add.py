@@ -1,5 +1,5 @@
 import pytest
-from . import code.add as add
+from . import code
 
 
 @pytest.fixture
